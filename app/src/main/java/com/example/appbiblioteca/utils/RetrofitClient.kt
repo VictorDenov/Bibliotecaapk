@@ -5,13 +5,19 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
 
-    private const val BASE_URL = "http://192.168.100.30:3000/" // Cambia esta URL a la que uses en tu backend
+    // Base URL de tu API
+    private const val BASE_URL = "http://192.168.100.30:3000/"  // Reemplázalo con la URL correcta
 
-    // Crear una instancia de Retrofit
-    fun getRetrofitInstance(): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl(BASE_URL)  // Base URL de tu API
-            .addConverterFactory(GsonConverterFactory.create())  // Para convertir respuestas JSON a objetos Kotlin
-            .build()
+    private var retrofit: Retrofit? = null
+
+    // Método para obtener la instancia de Retrofit
+    fun getRetrofit(): Retrofit {
+        if (retrofit == null) {
+            retrofit = Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())  // Para convertir las respuestas JSON a objetos Kotlin
+                .build()
+        }
+        return retrofit!!
     }
 }
