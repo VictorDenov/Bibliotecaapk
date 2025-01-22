@@ -3,11 +3,11 @@
 
     <item android:title="Libros"
         android:id="@+id/librosbt"
-        android:icon="@drawable/home"
+        android:icon="@drawable/local_library_24dp"
         />
-    <item android:title="Préstamos"
+    <item android:title="Estanteria"
 
-        android:id="@+id/prestamosbt"
+        android:id="@+id/estanteriabt"
         android:icon="@drawable/prestamo"
 
         />

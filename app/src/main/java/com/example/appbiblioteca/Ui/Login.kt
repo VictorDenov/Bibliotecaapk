@@ -2,6 +2,7 @@ package com.example.appbiblioteca.Ui
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.View
@@ -32,7 +33,6 @@ class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
 
         val loginButton = findViewById<Button>(R.id.loginBtn)
         loginButton.setOnClickListener {

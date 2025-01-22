@@ -1,13 +1,13 @@
-import org.jetbrains.kotlin.storage.CacheResetOnProcessCanceled.enabled
 
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-parcelize")
 }
 
 android {
     namespace = "com.example.appbiblioteca"
-    compileSdk = 34
+    compileSdk = 35
 
 
     defaultConfig {
@@ -37,11 +37,11 @@ android {
 
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 }
 
@@ -67,7 +67,6 @@ dependencies {
 
 
     //3d Recyclerview
-    implementation(libs.carouselrecyclerview.v124)
 
     //Glide
     implementation (libs.glide.v4130)
@@ -83,8 +82,17 @@ dependencies {
     implementation (libs.androidx.cardview)
     implementation (libs.github.carouselrecyclerview)
 
-    implementation (libs.androidx.recyclerview)
+    implementation (libs.androidx.navigation.fragment.ktx)
+    implementation (libs.androidx.navigation.ui.ktx)
+    implementation (libs.gson)
+    implementation(libs.kotlinx.serialization.json)
 
+    implementation (libs.okhttp)
+
+
+    implementation (libs.jetbrains.kotlin.stdlib)
+
+    implementation (libs.androidx.recyclerview)
 
 
 

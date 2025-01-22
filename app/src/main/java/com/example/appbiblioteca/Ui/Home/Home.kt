@@ -16,6 +16,8 @@ import com.example.appbiblioteca.R
 import com.example.appbiblioteca.Ui.Fragments.LibrosFragment
 import com.example.appbiblioteca.Ui.Fragments.PrestamosFragment
 import com.example.appbiblioteca.Ui.Login
+import com.example.appbiblioteca.Ui.ActivityAgregarLibro
+import com.example.appbiblioteca.Ui.Fragments.EstanteriaFragment
 import com.example.appbiblioteca.databinding.ActivityHomeBinding
 
 class Home : AppCompatActivity() {
@@ -31,10 +33,14 @@ class Home : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.librosbt -> replaceFragment(LibrosFragment())
-                R.id.prestamosbt -> replaceFragment(PrestamosFragment())
-                R.id.usuariosbt -> replaceFragment(LibrosFragment())
-                R.id.estadisticabt-> replaceFragment(LibrosFragment())
-                R.id.perfilbt -> replaceFragment(LibrosFragment())
+                R.id.estanteriabt -> replaceFragment(EstanteriaFragment())
+                R.id.usuariosbt -> {
+                    val intent = Intent(this,ActivityAgregarLibro ::class.java)
+                    startActivity(intent)
+                }
+
+                R.id.estadisticabt-> replaceFragment(PrestamosFragment())
+                R.id.perfilbt -> replaceFragment(PrestamosFragment())
                 else ->{
 
                 }

@@ -1,5 +1,6 @@
 package com.example.appbiblioteca.adaptadores
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -25,32 +26,33 @@ class CategoriaAdapter(
 
     override fun onBindViewHolder(holder: CategoriaViewHolder, position: Int) {
         val categoria = categorias[position]
-        holder.nombreCategoria.text = categoria.nombre
-
-        // Verifica si hay imágenes y luego carga la primera
-        if (categoria.imagenes.isNotEmpty()) {
-            Glide.with(context)
-                .load(categoria.imagenes[0].url) // Usamos la primera imagen de la lista
-                .placeholder(R.drawable.placeholder_image) // Imagen de carga
-                .error(R.drawable.error) // Imagen de error
-                .into(holder.imagenCategoria)
-        } else {
-            holder.imagenCategoria.setImageResource(R.drawable.placeholder_image) // Si no hay imagen, muestra una predeterminada
-        }
-
-        // Configurar el clic sobre la categoría
-        holder.cardView.setOnClickListener {
-            onItemClick(categoria)
-        }
+        holder.bind(categoria)
     }
 
-    override fun getItemCount(): Int {
-        return categorias.size
-    }
+    override fun getItemCount(): Int = categorias.size
 
-    class CategoriaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val nombreCategoria: TextView = itemView.findViewById(R.id.nombreCategoria)
-        val imagenCategoria: ImageView = itemView.findViewById(R.id.imagenCategoria)
-        val cardView: CardView = itemView.findViewById(R.id.cardViewCategoria)
+    // ViewHolder para la categoría
+    inner class CategoriaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val nombreCategoria: TextView = itemView.findViewById(R.id.nombreCategoria)
+        private val cardView: CardView = itemView.findViewById(R.id.cardViewCategoria)
+
+
+        fun bind(categoria: Categoria) {
+            nombreCategoria.text = categoria.nombre
+
+            // Verifica si hay imágenes y luego carga la primera
+            categoria.imagenes.firstOrNull()?.url?.let { url ->
+                Glide.with(context)
+                    .load(url)  // Usamos la primera imagen de la lista
+                    .placeholder(R.drawable.placeholder_image) // Imagen de carga
+                    .error(R.drawable.error) // Imagen de erro
+            } ?: run {
+            }
+
+            // Configurar el clic sobre la categoría
+            cardView.setOnClickListener {
+                onItemClick(categoria)
+            }
+        }
     }
 }

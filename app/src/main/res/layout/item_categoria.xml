@@ -3,34 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="200dp"
-    android:layout_height="250dp"
+    android:layout_height="50dp"
     android:layout_marginEnd="16dp"
-    app:cardCornerRadius="16dp"
+    app:cardCornerRadius="26dp"
     app:cardElevation="8dp"
     android:clickable="true"
     android:focusable="true"
     android:layout_marginTop="16dp"
     android:layout_marginBottom="16dp"
     android:id="@+id/cardViewCategoria"
+
     tools:context=".adaptadores.CategoriaAdapter">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@color/Colorits"
         android:gravity="center"
         android:padding="12dp">
-
-        <!-- Imagen de la categoría, ocupa todo el espacio disponible -->
-        <ImageView
-            android:id="@+id/imagenCategoria"
-            android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:scaleType="centerCrop"
-        android:contentDescription="Imagen de la categoría"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/round_border" />
 
 
         <TextView
@@ -38,12 +29,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Categoría"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
             android:gravity="center"
-            android:layout_marginTop="8dp"
-            android:maxWidth="120dp"
+            android:layout_marginTop="-5dp"
+            android:maxWidth="130dp"
             android:textStyle="bold"
+            android:fontFamily="@font/fira_sans_bold"
             android:ellipsize="end"
             android:maxLines="1" />
 

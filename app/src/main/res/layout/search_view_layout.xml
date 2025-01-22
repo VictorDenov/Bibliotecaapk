@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@drawable/searchview_background"
+    android:padding="0dp"
     android:gravity="center">
 
     <!-- SearchView personalizado -->
@@ -12,13 +11,16 @@
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="Buscar categoría"
-        android:iconifiedByDefault="false"
-        android:background="@android:color/white"
-        android:padding="8dp"
-        android:textColor="@android:color/black"
-        android:queryBackground="@android:color/transparent"
+        android:hint="Buscar"
+        android:background="@drawable/rounded_search_view"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:maxWidth="1000dp"/>
+
 
 
 </LinearLayout>
