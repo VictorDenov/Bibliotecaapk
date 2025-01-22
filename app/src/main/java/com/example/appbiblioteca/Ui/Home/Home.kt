@@ -10,46 +10,53 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
 
 import com.example.appbiblioteca.R
+import com.example.appbiblioteca.Ui.Fragments.LibrosFragment
+import com.example.appbiblioteca.Ui.Fragments.PrestamosFragment
 import com.example.appbiblioteca.Ui.Login
-
-
-import com.auth0.android.jwt.JWT
+import com.example.appbiblioteca.Ui.ActivityAgregarLibro
+import com.example.appbiblioteca.Ui.Fragments.EstanteriaFragment
+import com.example.appbiblioteca.databinding.ActivityHomeBinding
 
 class Home : AppCompatActivity() {
 
+    private lateinit var binding : ActivityHomeBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        binding= ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        replaceFragment(LibrosFragment())
 
-        // Recuperamos el token de SharedPreferences
-        val preferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-        val token = preferences.getString("jwt_token", null)  // Recuperamos el token
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.librosbt -> replaceFragment(LibrosFragment())
+                R.id.estanteriabt -> replaceFragment(EstanteriaFragment())
+                R.id.usuariosbt -> {
+                    val intent = Intent(this,ActivityAgregarLibro ::class.java)
+                    startActivity(intent)
+                }
 
-        if (token != null) {
-            // Si el token está disponible, decodificamos y mostramos el correo
-            Log.d("HomeActivity", "Token JWT: $token")
-            displayEmailFromToken(token)
-        } else {
-            Log.d("HomeActivity", "Token no disponible")
-            // Si no hay token, redirige al Login
-            val intent = Intent(this, Login::class.java)
-            startActivity(intent)
-            finish()
+                R.id.estadisticabt-> replaceFragment(PrestamosFragment())
+                R.id.perfilbt -> replaceFragment(PrestamosFragment())
+                else ->{
+
+                }
+
+            }
+            true
         }
     }
 
-    private fun displayEmailFromToken(token: String) {
-        try {
-            val jwt = JWT(token)  // Usamos la librería JWTDecode para decodificar el token
-            val email = jwt.getClaim("Email").asString()  // Suponiendo que 'email' está en el payload
+    private fun replaceFragment(fragment : Fragment){
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_layout,fragment)
+        fragmentTransaction.commit()
 
-            val emailTextView = findViewById<TextView>(R.id.emailTextView)
-            emailTextView.text = "Correo: $email"  // Muestra el correo en un TextView
-
-        } catch (e: Exception) {
-            Log.e("HomeActivity", "Error al decodificar el token: ${e.message}")
-        }
     }
+
 }
+

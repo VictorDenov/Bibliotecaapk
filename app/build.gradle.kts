@@ -1,11 +1,14 @@
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-parcelize")
 }
 
 android {
     namespace = "com.example.appbiblioteca"
-    compileSdk = 34
+    compileSdk = 35
+
 
     defaultConfig {
         applicationId = "com.example.appbiblioteca"
@@ -15,6 +18,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -25,13 +29,19 @@ android {
                 "proguard-rules.pro"
             )
         }
+
+    }
+    buildFeatures{
+
+        viewBinding = true
+
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 }
 
@@ -42,6 +52,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.baselibrary)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -51,8 +62,39 @@ dependencies {
     implementation (libs.androidx.material.icons.extended)
     implementation (libs.logging.interceptor)
     implementation (libs.androidx.navigation.compose)
-    implementation (libs.androidx.lifecycle.viewmodel.compose)
     implementation (libs.jwtdecode)
+
+
+
+    //3d Recyclerview
+
+    //Glide
+    implementation (libs.glide.v4130)
+    annotationProcessor (libs.compiler)
+
+    // Lifecycle
+    implementation (libs.androidx.lifecycle.extensions)
+    implementation (libs.androidx.lifecycle.runtime.ktx)
+    implementation (libs.androidx.lifecycle.viewmodel.ktx)
+    implementation (libs.androidx.lifecycle.livedata.ktx)
+    implementation (libs.kotlin.reflect)
+
+    implementation (libs.androidx.cardview)
+    implementation (libs.github.carouselrecyclerview)
+
+    implementation (libs.androidx.navigation.fragment.ktx)
+    implementation (libs.androidx.navigation.ui.ktx)
+    implementation (libs.gson)
+    implementation(libs.kotlinx.serialization.json)
+
+    implementation (libs.okhttp)
+
+
+    implementation (libs.jetbrains.kotlin.stdlib)
+
+    implementation (libs.androidx.recyclerview)
+
+
 
 
 }

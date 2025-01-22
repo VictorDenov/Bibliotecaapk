@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+    <TextView
+        android:id="@+id/textViewTituloDocente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Título del libro"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+
+    <EditText
+        android:id="@+id/editTextNombreDocente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del Docente"
+        android:inputType="textPersonName"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/editTextNumeroEmpleadoDocente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Número de empleado"
+        android:inputType="number"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Departamento del docente -->
+    <EditText
+        android:id="@+id/editTextDepartamentoDocente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Departamento"
+        android:inputType="text"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/editTextFechaPrestamoDocente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Fecha de préstamo"
+        android:inputType="date"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Campo para la fecha de devolución -->
+    <EditText
+        android:id="@+id/editTextFechaDevolucionDocente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Fecha de devolución"
+        android:inputType="date"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/buttonRegistrarPrestamoDocente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrar Préstamo" />
+
+</LinearLayout>

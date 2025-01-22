@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Libros"
+        android:id="@+id/librosbt"
+        android:icon="@drawable/local_library_24dp"
+        />
+    <item android:title="Estanteria"
+
+        android:id="@+id/estanteriabt"
+        android:icon="@drawable/prestamo"
+
+        />
+    <item android:title="Usuarios"
+        android:id="@+id/usuariosbt"
+        android:icon="@drawable/users"
+
+        />
+    <item android:title="Estadísticas"
+        android:id="@+id/estadisticabt"
+        android:icon="@drawable/menu"
+
+        />
+    <item android:title="Perfil"
+        android:id="@+id/perfilbt"
+        android:icon="@drawable/perfil"
+
+
+        />
+</menu>
