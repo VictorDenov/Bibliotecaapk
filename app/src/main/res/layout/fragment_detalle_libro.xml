@@ -12,27 +12,50 @@
         android:titleTextColor="@color/colorrojo"
         android:elevation="4dp"
         app:title="Biblioteca"
-        android:layout_marginTop="20dp"
+
         app:navigationIcon="@drawable/back"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"/>
+
+        />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="56dp">
+        android:padding="20dp">
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="50dp"
+            android:gravity="center"
             android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="0dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/textViewTituloDetalles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Detalle del Libro"
+                    android:textSize="30sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="8dp" />
+            </LinearLayout>
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                android:layout_marginTop="20dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="6dp">
 
@@ -40,6 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+
                 android:padding="16dp">
 
                 <ImageView
@@ -89,22 +113,156 @@
                     android:textSize="16sp"
                     android:layout_marginBottom="8dp" />
             </LinearLayout>
+
+
         </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="200dp"
+                    >
+                    <include
+                        layout="@layout/item_resenas" />
+
+
+                </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 
-            <Button
-                android:id="@+id/buttonPrestarLibro"
-                android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Prestar"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:background="@drawable/button_background"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="12dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:spacing="8dp"> <!-- Espaciado entre los elementos -->
+
+                <!-- Título del libro -->
+                <TextView
+                    android:id="@+id/textViewTitulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Título: La sombra del viento"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/fira_sans_bold"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Autor del libro -->
+                <TextView
+                    android:id="@+id/textViewAutor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Autor: Carlos Ruiz Zafón"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Año de publicación -->
+                <TextView
+                    android:id="@+id/textViewAno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Año de publicación: 2001"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Género -->
+                <TextView
+                    android:id="@+id/textViewGenero"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Género: Ficción, Misterio"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Descripción del libro -->
+                <TextView
+                    android:id="@+id/textViewDescripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Descripción: La sombra del viento es una obra que combina elementos de novela histórica, misterio y amor. Ambientada en la Barcelona de la postguerra, la historia sigue a un joven llamado Daniel..."
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Campo para agregar notas o comentarios -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputLayoutNotas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundMode="filled"
+                    app:boxStrokeColor="@color/colorrojo"
+                    app:boxBackgroundColor="@color/white"
+                    app:errorEnabled="true"
+                    android:layout_marginBottom="16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editarNotas"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:inputType="textMultiLine"
+                        android:hint="Escribe tus notas o comentarios sobre este libro"
+                        android:fontFamily="@font/fira_sans"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/textHintColor"
+                        android:padding="12dp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Botón para guardar las notas del libro -->
+
+            </LinearLayout>
+
+
 
         </LinearLayout>
+
+
     </ScrollView>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_gravity="bottom"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:weightSum="2">
+
+    <Button
+        android:id="@+id/buttonPrestarLibro"
+        android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:text="Prestar"
+    android:background="@color/colorrojo"
+    android:textColor="@color/white"
+    android:textSize="16sp"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="16dp"
+    android:paddingHorizontal="24dp"
+    android:paddingVertical="12dp"
+    android:gravity="center"
+    android:layout_marginEnd="8dp"
+    />
+
+    <Button
+        android:id="@+id/btnEditarlibro"
+        android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:text="Editar Libro"
+    android:background="@color/colorrojo"
+    android:textColor="@color/white"
+    android:textSize="16sp"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="16dp"
+    android:paddingHorizontal="24dp"
+    android:paddingVertical="12dp"
+    android:gravity="center"
+    />
+</LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
