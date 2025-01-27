@@ -4,13 +4,13 @@
     <style name="Base.Theme.AppBiblioteca" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here -->
         <!-- Colores de la aplicación -->
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/Colorits</item>
         <item name="colorPrimaryVariant">@color/Colorits</item>
-        <item name="colorOnPrimary">@android:color/white</item>
-        <item name="colorSecondary">@color/colorAccent</item>
+        <item name="colorOnPrimary">@color/Colorits</item>
+        <item name="colorSecondary">@color/Colorits</item>
 
         <!-- Barra de estado (barra de notificaciones) -->
-        <item name="android:statusBarColor">@color/white</item> <!-- Establece el color de la barra de estado -->
+        <item name="android:statusBarColor">@color/Colorits</item> <!-- Establece el color de la barra de estado -->
 
         <!-- Otros elementos de Material3, si es necesario -->
         <!-- <item name="android:textColorPrimary">@android:color/black</item> -->
