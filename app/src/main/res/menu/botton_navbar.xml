@@ -11,9 +11,9 @@
         android:icon="@drawable/prestamo"
 
         />
-    <item android:title="Usuarios"
+    <item android:title="Agregar Libros"
         android:id="@+id/usuariosbt"
-        android:icon="@drawable/users"
+        android:icon="@drawable/addl"
 
         />
     <item android:title="Estadísticas"

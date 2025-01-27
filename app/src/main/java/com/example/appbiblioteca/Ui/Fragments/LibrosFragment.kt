@@ -39,6 +39,7 @@ import retrofit2.Call;
 
 class LibrosFragment : Fragment() {
 
+
     private lateinit var recyclerViewLibros: RecyclerView
     private lateinit var recyclerViewCategorias: RecyclerView
     private lateinit var categoriaAdapter: CategoriaAdapter
@@ -121,32 +122,62 @@ class LibrosFragment : Fragment() {
         }
     }
 
+
     private fun obtenerCategorias() {
         val apiService = RetrofitClient.apiService
 
         apiService.getCategorias().enqueue(object : Callback<List<Categoria>> {
             override fun onResponse(call: Call<List<Categoria>>, response: Response<List<Categoria>>) {
-                if (isAdded) { // Verificar si el fragmento está adjunto
-                    if (response.isSuccessful && response.body() != null) {
-                        categorias = response.body() ?: emptyList()
-                        // Actualizar el adaptador con la lista de categorías obtenidas
-                        categoriaAdapter = CategoriaAdapter(categorias, requireContext()) { categoria ->
-                            // Lógica de selección de categoría (si es necesario)
-                        }
-                        recyclerViewCategorias.adapter = categoriaAdapter
-                    } else {
-                        Toast.makeText(requireContext(), "Error al cargar las categorías", Toast.LENGTH_SHORT).show()
+                if (response.isSuccessful && response.body() != null) {
+                    categorias = response.body() ?: emptyList()
+                    categoriaAdapter = CategoriaAdapter(categorias, requireContext()) { categoria ->
+                        // Lógica para navegar al fragmento de libros de la categoría seleccionada
+                        // Llamamos a la función para obtener los libros de la categoría
+                        obtenerLibrosDeCategoria(categoria)
                     }
+                    recyclerViewCategorias.adapter = categoriaAdapter
+                } else {
+                    Toast.makeText(requireContext(), "Error al cargar las categorías", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<List<Categoria>>, t: Throwable) {
-                if (isAdded) { // Verificar si el fragmento está adjunto
-                    Toast.makeText(requireContext(), "Error al conectar con el servidor", Toast.LENGTH_SHORT).show()
-                }
+                Toast.makeText(requireContext(), "Error al conectar con el servidor", Toast.LENGTH_SHORT).show()
             }
         })
     }
+
+    private fun obtenerLibrosDeCategoria(categoria: Categoria) {
+        val apiService = RetrofitClient.apiService
+
+        // Llamamos a la API para obtener los libros de la categoría seleccionada
+        apiService.getLibrosDeCategoria(categoria.id).enqueue(object : Callback<List<CreateLibroDto>> {
+            override fun onResponse(call: Call<List<CreateLibroDto>>, response: Response<List<CreateLibroDto>>) {
+                if (response.isSuccessful) {
+                    val libros = response.body() ?: emptyList()
+
+                    if (libros.isNotEmpty()) {
+                        // Si hay libros, navegar al fragmento
+                        val librosFragment = LibrosDeCategoriaFragment.newInstance(categoria)
+                        parentFragmentManager.beginTransaction()
+                            .replace(R.id.frame_layout, librosFragment)
+                            .addToBackStack(null)
+                            .commit()
+                    } else {
+                        // Si no hay libros, mostrar mensaje
+                        Toast.makeText(requireContext(), "No hay libros disponibles en esta categoría", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(requireContext(), "Error al cargar los libros", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<List<CreateLibroDto>>, t: Throwable) {
+                Toast.makeText(requireContext(), "Error al conectar con el servidor", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
 
     private fun obtenerLibros() {
         val apiService = RetrofitClient.apiService

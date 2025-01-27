@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
 import com.example.appbiblioteca.R
 import com.example.appbiblioteca.data.Categoria
@@ -53,6 +54,17 @@ class ActivityAgregarLibro : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_agregar_libro)
+
+        val toolbar: Toolbar = findViewById(R.id.toolbarlibro)
+        setSupportActionBar(toolbar)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
+
 
         ivPortada = findViewById(R.id.iv_portada)
         etIsbn = findViewById(R.id.et_isbn)
@@ -100,6 +112,18 @@ class ActivityAgregarLibro : AppCompatActivity() {
 
         // Llamar a la función para cargar las categorías
         obtenerCategorias()
+    }
+
+
+
+
+    override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            // Al hacer clic en el icono de retroceso, se hace un back
+            onBackPressed()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     // Método para cargar categorías
