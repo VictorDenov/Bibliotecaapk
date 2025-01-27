@@ -20,11 +20,11 @@
             android:id="@+id/textView3i"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:fontFamily="@font/fira_sans_medium"
             android:text="Biblioteca Instituto Riobamba"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="40sp"
             android:layout_gravity="center" />
 
         <ImageView
@@ -32,25 +32,14 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
-            android:layout_marginTop="80dp"
-            app:srcCompat="@drawable/log1" />
-
-
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Inicia Sesion"
-            android:fontFamily="@font/fira_sans"
-            android:textColor="@color/white"
-            android:layout_gravity="center" />
+            android:layout_marginTop="150dp"
+            app:srcCompat="@drawable/logoist" />
 
         <EditText
             android:id="@+id/loginEmail"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="100dp"
             android:textCursorDrawable="@drawable/cm_cursor"
             android:background="@drawable/cm_edittext"
             android:ems="10"
@@ -60,6 +49,8 @@
             android:imeOptions="actionNext"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:textColor="@color/colorrojo"
             android:textColorHint="@color/textHintColor" />
 
@@ -67,7 +58,7 @@
             android:id="@+id/loginPass"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="50dp"
             android:textCursorDrawable="@drawable/cm_cursor"
             android:background="@drawable/cm_edittext"
             android:ems="10"
@@ -90,8 +81,7 @@
             android:layout_marginTop="100dp"
             android:layout_marginBottom="24dp"
             android:background="@drawable/cm_bg"
-            android:drawableRight="@drawable/right_arrow"
-            android:drawableTint="@color/black"
+            android:drawableTint="@color/colorrojo"
             android:paddingHorizontal="20dp"
             android:text="Inicia Sesion"
             android:textColor="@color/colorrojo" />
@@ -100,11 +90,11 @@
             android:id="@+id/versionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="200dp"
             android:text="Versión: 1.0.0"
             android:textColor="@color/white"
-            android:textSize="14sp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"/>
+            android:textSize="14sp" />
 
 
     </LinearLayout>

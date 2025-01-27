@@ -18,6 +18,8 @@ interface ApiService {
     @GET("categorias")
     fun getCategorias(): Call<List<Categoria>>
 
+    @GET("categorias/{id}/libros")
+    fun getLibrosDeCategoria(@Path("id") categoriaId: Int): Call<List<CreateLibroDto>>
 
     @Multipart
     @POST("libros/create")

@@ -22,41 +22,55 @@ import com.example.appbiblioteca.databinding.ActivityHomeBinding
 
 class Home : AppCompatActivity() {
 
-    private lateinit var binding : ActivityHomeBinding
+    private lateinit var binding: ActivityHomeBinding
+    private var currentFragment: Fragment? = null // Para evitar reemplazar el mismo fragmento
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityHomeBinding.inflate(layoutInflater)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        replaceFragment(LibrosFragment())
 
+        // Reemplazar el fragmento inicial
+        if (savedInstanceState == null) {
+            replaceFragment(LibrosFragment())
+        }
+
+        // Configuración de BottomNavigationView
         binding.bottomNavigationView.setOnItemSelectedListener {
-            when(it.itemId){
+            when (it.itemId) {
                 R.id.librosbt -> replaceFragment(LibrosFragment())
                 R.id.estanteriabt -> replaceFragment(EstanteriaFragment())
                 R.id.usuariosbt -> {
-                    val intent = Intent(this,ActivityAgregarLibro ::class.java)
+                    val intent = Intent(this, ActivityAgregarLibro::class.java)
                     startActivity(intent)
                 }
-
-                R.id.estadisticabt-> replaceFragment(PrestamosFragment())
+                R.id.estadisticabt -> replaceFragment(PrestamosFragment())
                 R.id.perfilbt -> replaceFragment(PrestamosFragment())
-                else ->{
-
+                else -> {
+                    // Puedes manejar otros casos aquí si es necesario
                 }
-
             }
             true
         }
     }
 
-    private fun replaceFragment(fragment : Fragment){
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frame_layout,fragment)
-        fragmentTransaction.commit()
+    private fun replaceFragment(fragment: Fragment) {
+        // Evitar reemplazar el mismo fragmento
+        if (currentFragment == null || currentFragment!!::class.java != fragment::class.java) {
+            val transaction = supportFragmentManager.beginTransaction()
 
+            // Agregar animaciones para la transición
+            transaction.setCustomAnimations(
+                android.R.anim.fade_in,
+                android.R.anim.fade_out
+            )
+
+            // Reemplazar el fragmento
+            transaction.replace(R.id.frame_layout, fragment)
+            transaction.commit()
+
+            // Actualizar el fragmento actual
+            currentFragment = fragment
+        }
     }
-
 }
-

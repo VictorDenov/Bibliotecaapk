@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LibrosDeCategoriaFragment">
+
+    <!-- Toolbar para la parte superior -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:background="?android:attr/colorPrimary"
+        android:elevation="4dp"
+        app:titleTextColor="@android:color/white"/>
+
+    <!-- RecyclerView donde se mostrarán los libros de la categoría -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewLibros"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:clipToPadding="false"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:orientation="vertical"
+        android:scrollbars="vertical"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

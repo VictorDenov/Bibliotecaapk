@@ -6,161 +6,227 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Ui.ActivityAgregarLibro"
-    android:padding="16dp">
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:spacing="16dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarlibro"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/Colorits"
+            android:titleTextColor="@color/colorrojo"
+            android:elevation="4dp"
+            app:title="Biblioteca"
+            app:navigationIcon="@drawable/back"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"/>
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintEnabled="true">
+            android:padding="16dp"
+            app:hintEnabled="true"
+            android:layout_marginBottom="16dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_isbn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="ISBN"
-                android:inputType="text" />
+                android:inputType="text"
+                android:padding="12dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Tipo -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintEnabled="true">
+            android:padding="16dp"
+            app:hintEnabled="true"
+            android:layout_marginBottom="16dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_tipo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Tipo (físico, digital)"
-                android:inputType="text" />
+                android:inputType="text"
+                android:padding="12dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Título -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintEnabled="true">
+            android:padding="16dp"
+            app:hintEnabled="true"
+            android:layout_marginBottom="16dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_titulo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Título"
-                android:inputType="text" />
+                android:inputType="text"
+                android:padding="12dp"/>
         </com.google.android.material.textfield.TextInputLayout>
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintEnabled="true">
+            android:padding="16dp"
+            app:hintEnabled="true"
+            android:layout_marginBottom="16dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_area_de_conocimiento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Área de Conocimiento"
-                android:inputType="text" />
+                android:inputType="text"
+                android:padding="12dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Autor -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintEnabled="true">
+            android:padding="16dp"
+            app:hintEnabled="true"
+            android:layout_marginBottom="16dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_autor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Autor"
-                android:inputType="text" />
+                android:inputType="text"
+                android:padding="12dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Número de Ejemplares -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintEnabled="true">
+            android:padding="16dp"
+            app:hintEnabled="true"
+            android:layout_marginBottom="16dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_numero_ejemplares"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Número de Ejemplares"
-                android:inputType="number" />
+                android:inputType="number"
+                android:padding="12dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Código Ubicación Física -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintEnabled="true">
+            android:padding="16dp"
+            app:hintEnabled="true"
+            android:layout_marginBottom="16dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_codigo_ubicacion_fisica"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Código Ubicación Física"
-                android:inputType="text" />
+                android:inputType="text"
+                android:padding="12dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Verificación (Opcional) -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintEnabled="true">
+            android:padding="16dp"
+            app:hintEnabled="true"
+            android:layout_marginBottom="16dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_verificacion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Verificación (Opcional)"
-                android:inputType="text" />
+                android:inputType="text"
+                android:padding="12dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Editorial -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintEnabled="true">
+            android:padding="16dp"
+            app:hintEnabled="true"
+            android:layout_marginBottom="16dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_editorial"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Editorial"
-                android:inputType="text" />
+                android:inputType="text"
+                android:padding="12dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Año de Publicación -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintEnabled="true">
+            android:padding="16dp"
+            app:hintEnabled="true"
+            android:layout_marginBottom="16dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_ano"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Año de Publicación"
-                android:inputType="number" />
+                android:inputType="number"
+                android:padding="12dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Edición -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintEnabled="true">
+            android:padding="16dp"
+            app:hintEnabled="true"
+            android:layout_marginBottom="16dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_edicion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="12dp"
                 android:hint="Edición"
-                android:inputType="text" />
+                android:inputType="text"
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Spinner para Categoría -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintEnabled="true">
+            android:padding="16dp"
+            app:hintEnabled="true"
+            android:layout_marginBottom="16dp">
             <Spinner
                 android:id="@+id/spinner_categoria"
                 android:layout_width="match_parent"
-                android:layout_height="48dp" /> <!-- Aumenta la altura del Spinner -->
+                android:layout_height="48dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-
+        <!-- Portada -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:layout_gravity="center"
             android:text="Seleccionar portada"
-            android:paddingTop="16dp" />
+            android:layout_marginTop="16dp"
+            android:textSize="30dp"
+            android:paddingBottom="8dp"/>
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_portada"
@@ -168,23 +234,31 @@
             android:layout_height="200dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
+            android:padding="16dp"
             android:src="@android:drawable/ic_menu_camera"
-            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.None" />
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.None"/>
 
+        <!-- Botón Seleccionar Imagen -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_seleccionar_imagen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
+            android:layout_gravity="center"
             android:text="Seleccionar imagen"
-            app:icon="@android:drawable/ic_menu_gallery" />
+            android:padding="16dp"
+            android:textSize="20dp"
+            app:icon="@android:drawable/ic_menu_gallery"
+            android:layout_marginBottom="16dp"/>
 
+        <!-- Botón Guardar -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_guardar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="16dp"
             android:textColor="@color/black"
-            android:text="Guardar Libro" />
+            android:text="Guardar Libro"
+            android:layout_marginBottom="16dp"/>
     </LinearLayout>
-
 </ScrollView>
