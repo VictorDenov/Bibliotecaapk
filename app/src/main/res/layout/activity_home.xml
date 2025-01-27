@@ -21,14 +21,17 @@
     app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
     tools:ignore="MissingConstraints" />
 
+
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_gravity="bottom"
+            app:menu="@menu/botton_navbar" />
+
 </LinearLayout>
 
-<com.google.android.material.bottomnavigation.BottomNavigationView
-android:id="@+id/bottomNavigationView"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:background="@color/white"
-android:layout_gravity="bottom"
-app:menu="@menu/botton_navbar" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

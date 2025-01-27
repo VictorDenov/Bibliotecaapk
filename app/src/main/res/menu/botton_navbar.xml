@@ -3,12 +3,12 @@
 
     <item android:title="Libros"
         android:id="@+id/librosbt"
-        android:icon="@drawable/local_library_24dp"
+        android:icon="@drawable/book"
         />
     <item android:title="Estanteria"
 
         android:id="@+id/estanteriabt"
-        android:icon="@drawable/prestamo"
+        android:icon="@drawable/estatentira"
 
         />
     <item android:title="Agregar Libros"
