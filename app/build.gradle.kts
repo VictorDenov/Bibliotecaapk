@@ -53,6 +53,7 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.baselibrary)
+    implementation(libs.androidx.coordinatorlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -93,6 +94,8 @@ dependencies {
     implementation (libs.jetbrains.kotlin.stdlib)
 
     implementation (libs.androidx.recyclerview)
+
+    implementation (libs.circleimageview)
 
 
 

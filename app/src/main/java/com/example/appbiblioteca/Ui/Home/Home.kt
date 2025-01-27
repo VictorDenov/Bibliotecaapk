@@ -18,6 +18,7 @@ import com.example.appbiblioteca.Ui.Fragments.PrestamosFragment
 import com.example.appbiblioteca.Ui.Login
 import com.example.appbiblioteca.Ui.ActivityAgregarLibro
 import com.example.appbiblioteca.Ui.Fragments.EstanteriaFragment
+import com.example.appbiblioteca.Ui.Fragments.PerfilFragment
 import com.example.appbiblioteca.databinding.ActivityHomeBinding
 
 class Home : AppCompatActivity() {
@@ -45,7 +46,7 @@ class Home : AppCompatActivity() {
                     startActivity(intent)
                 }
                 R.id.estadisticabt -> replaceFragment(PrestamosFragment())
-                R.id.perfilbt -> replaceFragment(PrestamosFragment())
+                R.id.perfilbt -> replaceFragment(PerfilFragment())
                 else -> {
                     // Puedes manejar otros casos aquí si es necesario
                 }
