@@ -12,47 +12,68 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp">
 
-        <!-- Incluir la Toolbar -->
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar_layout" />
-
-        <!-- Título principal -->
-        <TextView
-            android:id="@+id/Title"
-            android:fontFamily="@font/fira_sans_bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Biblioteca Instituto Riobamba"
-            android:textSize="24sp"
-            android:textColor="@color/colorrojo"
-            android:layout_marginTop="16dp"
-            android:gravity="center" />
-
-        <!-- Subtítulo -->
-        <TextView
-            android:id="@+id/Title1"
-            android:fontFamily="@font/fira_sans_bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Aplicación para La Gestión de La Biblioteca"
-            android:textSize="14sp"
-            android:textColor="@color/Colorits"
-            android:layout_marginTop="8dp"
-            android:gravity="center" />
-
-        <!-- Incluir el SearchView -->
-        <include
-            android:id="@+id/searchViewContainer"
-            layout="@layout/search_view_layout"
+        android:gravity="left"
+        >
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp" />
+            android:orientation="vertical"
+            >
 
-        <!-- Título de Categorías -->
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar_layout" />
+
+            <!-- Título principal -->
+            <TextView
+                android:id="@+id/Title"
+                android:fontFamily="@font/fira_sans_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Biblioteca Instituto Riobamba"
+                android:textSize="24sp"
+                android:textColor="@color/colorrojo"
+                android:layout_marginTop="16dp"
+                android:gravity="center" />
+
+            <!-- Subtítulo -->
+            <TextView
+                android:id="@+id/Title1"
+                android:fontFamily="@font/fira_sans_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Aplicación para La Gestión de La Biblioteca"
+                android:textSize="14sp"
+                android:textColor="@color/Colorits"
+                android:layout_marginTop="8dp"
+                android:gravity="center" />
+
+            <!-- Incluir el SearchView -->
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <include
+                android:id="@+id/searchViewContainer"
+                layout="@layout/search_view_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+               />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+       >
         <TextView
             android:id="@+id/categoriasTitle"
             android:fontFamily="@font/fira_sans_bold"
@@ -62,36 +83,48 @@
             android:textSize="24sp"
             android:textColor="@color/colorrojo"
             android:layout_marginTop="24dp"
-            android:gravity="center" />
 
-        <!-- RecyclerView de Categorías -->
+        />
+
+        <!-- RecyclerView centrado -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewCategorias"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            android:paddingBottom="16dp" />
 
-        <!-- Título de Libros -->
-        <TextView
-            android:id="@+id/aditionalContent"
-            android:fontFamily="@font/fira_sans_bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Libros del Instituto"
-            android:textColor="@color/colorrojo"
-            android:textSize="24sp"
-            android:layout_marginTop="24dp"
-            android:gravity="center" />
+            />
+    </LinearLayout>
 
-        <!-- RecyclerView de Libros -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewLibros"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp" />
+
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/aditionalContent"
+        android:fontFamily="@font/fira_sans_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Libros del Instituto"
+        android:textColor="@color/colorrojo"
+        android:textSize="24sp"
+        android:layout_marginTop="24dp"
+        android:gravity="center" />
+
+    <!-- RecyclerView de Libros -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewLibros"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp" />
+
+
+</LinearLayout>
+
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
