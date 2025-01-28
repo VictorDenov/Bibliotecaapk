@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/opcion_agregar_estudiante"
+        android:title="Agregar Estudiante" />
+    <item
+        android:id="@+id/opcion_agregar_libro"
+        android:title="Agregar Libro" />
+    <!-- Puedes agregar más opciones aquí si es necesario -->
+</menu>

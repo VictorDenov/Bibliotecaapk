@@ -16,6 +16,9 @@
         android:theme="@style/Theme.AppBiblioteca"
         tools:targetApi="31">
         <activity
+            android:name=".Ui.ActivityAgregarEstudiante"
+            android:exported="false" />
+        <activity
             android:name=".Ui.PrestamosEstudiantesLibros"
             android:exported="false" />
         <activity

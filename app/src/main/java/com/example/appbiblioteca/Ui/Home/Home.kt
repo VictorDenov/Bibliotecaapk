@@ -5,14 +5,17 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 
 import com.example.appbiblioteca.R
+import com.example.appbiblioteca.Ui.ActivityAgregarEstudiante
 import com.example.appbiblioteca.Ui.Fragments.LibrosFragment
 import com.example.appbiblioteca.Ui.Fragments.PrestamosFragment
 import com.example.appbiblioteca.Ui.Login
@@ -24,7 +27,8 @@ import com.example.appbiblioteca.databinding.ActivityHomeBinding
 class Home : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
-    private var currentFragment: Fragment? = null // Para evitar reemplazar el mismo fragmento
+    private var currentFragment: Fragment? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,15 +40,47 @@ class Home : AppCompatActivity() {
             replaceFragment(LibrosFragment())
         }
 
-        // Configuración de BottomNavigationView
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.librosbt -> replaceFragment(LibrosFragment())
                 R.id.estanteriabt -> replaceFragment(EstanteriaFragment())
+
                 R.id.usuariosbt -> {
-                    val intent = Intent(this, ActivityAgregarLibro::class.java)
-                    startActivity(intent)
+                    val opciones = arrayOf("Agregar Estudiante", "Agregar Libro")
+
+                    // Crear el AlertDialog
+                    val builder = AlertDialog.Builder(this)
+                        .setTitle("Selecciona una opción")
+                        .setItems(opciones) { dialog, which ->
+                            when (which) {
+                                0 -> {
+                                    // Agregar Estudiante
+                                    val intentEstudiante = Intent(this, ActivityAgregarEstudiante::class.java)
+                                    startActivity(intentEstudiante)
+                                }
+                                1 -> {
+                                    // Agregar Libro
+                                    val intentLibro = Intent(this, ActivityAgregarLibro::class.java)
+                                    startActivity(intentLibro)
+                                }
+                            }
+                        }
+
+                    // Cambiar el fondo del título para hacerlo más atractivo
+                    builder.setCancelable(true) // Permitir que se cierre tocando fuera del diálogo
+                    val dialog = builder.create()
+
+                    // Personalizar el fondo del dialogo (si quieres, puedes poner imágenes o colores)
+                    dialog.window?.setBackgroundDrawableResource(R.drawable.dialog_background)
+
+                    // Mostrar el diálogo
+                    dialog.show()
                 }
+
+
+
+
+
                 R.id.estadisticabt -> replaceFragment(PrestamosFragment())
                 R.id.perfilbt -> replaceFragment(PerfilFragment())
                 else -> {
@@ -53,6 +89,7 @@ class Home : AppCompatActivity() {
             }
             true
         }
+
     }
 
     private fun replaceFragment(fragment: Fragment) {

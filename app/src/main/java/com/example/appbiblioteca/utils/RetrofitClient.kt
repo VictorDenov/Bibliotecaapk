@@ -1,6 +1,7 @@
 package com.example.appbiblioteca.utils
 
 import com.example.appbiblioteca.data.api.ApiService
+import com.example.appbiblioteca.data.api.AuthService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -18,5 +19,12 @@ object RetrofitClient {
     val apiService: ApiService by lazy {
         retrofit.create(ApiService::class.java)
     }
+
+
+    val apiclien: AuthService by lazy {
+        retrofit.create(AuthService::class.java)
+    }
+
+
 
 }
