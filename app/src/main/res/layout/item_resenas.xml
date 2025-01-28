@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:gravity="center_vertical"
+    android:spacing="8dp">
+
+    <!-- Opiniones -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginEnd="54dp"
+      >
+
+        <ImageView
+            android:id="@+id/iconOpiniones"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ratingstart"
+            app:tint="@color/colorrojo" />
+
+        <TextView
+            android:id="@+id/textOpiniones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opiniones"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="4dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginEnd="50dp">
+
+        <ImageView
+            android:id="@+id/iconTipoLibro"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_tipo_libro"
+            app:tint="@color/colorrojo" />
+
+        <TextView
+            android:id="@+id/textTipoLibro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipo de libro"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="4dp" />
+    </LinearLayout>
+
+    <!-- Número de página -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginEnd="54dp">
+
+        <ImageView
+            android:id="@+id/iconNumeroPagina"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_paginas"
+            app:tint="@color/colorrojo" />
+
+        <TextView
+            android:id="@+id/textNumeroPagina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Página #"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="4dp" />
+    </LinearLayout>
+
+    <!-- Si es apto o no -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/iconApto"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_apto"
+            app:tint="@color/colorrojo" />
+
+        <TextView
+            android:id="@+id/textApto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apto"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="4dp" />
+    </LinearLayout>
+
+</LinearLayout>

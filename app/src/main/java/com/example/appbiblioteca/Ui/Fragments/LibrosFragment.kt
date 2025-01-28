@@ -1,5 +1,8 @@
 package com.example.appbiblioteca.Ui.Fragments
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -22,6 +25,7 @@ import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appbiblioteca.R
+import com.example.appbiblioteca.Ui.Login
 import com.example.appbiblioteca.adaptadores.CategoriaAdapter
 import com.example.appbiblioteca.adaptadores.LibrosAdapter
 import com.example.appbiblioteca.data.Categoria
@@ -39,7 +43,6 @@ import retrofit2.Call;
 
 class LibrosFragment : Fragment() {
 
-
     private lateinit var recyclerViewLibros: RecyclerView
     private lateinit var recyclerViewCategorias: RecyclerView
     private lateinit var categoriaAdapter: CategoriaAdapter
@@ -48,11 +51,15 @@ class LibrosFragment : Fragment() {
     private lateinit var libroAdapter: LibrosAdapter
     private var libros: List<CreateLibroDto> = emptyList() // Inicializado con una lista vacía
 
+    private lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_libros, container, false)
+
+        sharedPreferences = requireActivity().getSharedPreferences("AuthPreferences", Context.MODE_PRIVATE)
 
         // Configuración del RecyclerView para las categorías
         recyclerViewCategorias = view.findViewById(R.id.recyclerViewCategorias)
@@ -105,23 +112,33 @@ class LibrosFragment : Fragment() {
 
     // Manejar las selecciones de los íconos en el menú
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.navigationIcon -> {
-                if (isAdded) { // Verificar si el fragmento está adjunto
-                    Toast.makeText(requireContext(), "Menú clickeado", Toast.LENGTH_SHORT).show()
-                }
-                return true
-            }
+        return when (item.itemId) {
+
             R.id.profileIcon -> {
                 if (isAdded) { // Verificar si el fragmento está adjunto
-                    Toast.makeText(requireContext(), "Perfil clickeado", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Cerrando Sesion", Toast.LENGTH_SHORT).show()
+                    logout()
+                    true
                 }
-                return true
+                true
             }
-            else -> return super.onOptionsItemSelected(item)
+            R.id.logout -> {
+                logout()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
+    private fun logout() {
+        // Eliminar el token de autenticación de SharedPreferences
+        sharedPreferences.edit().remove("authToken").apply()
+
+        // Dirigir a la actividad de inicio de sesión
+        val intent = Intent(requireContext(), Login::class.java)
+        startActivity(intent)
+        requireActivity().finish()
+    }
 
     private fun obtenerCategorias() {
         val apiService = RetrofitClient.apiService
@@ -177,7 +194,6 @@ class LibrosFragment : Fragment() {
             }
         })
     }
-
 
     private fun obtenerLibros() {
         val apiService = RetrofitClient.apiService
